@@ -127,7 +127,15 @@ public class CardListAdapter extends BaseAdapter {
   }
 
   @Override public int getItemViewType(int position) {
-    return super.getItemViewType(position);
+    Model model = getItem(position);
+    if(model instanceof CardOneModel) {
+      return VIEWTYPE_CARD_ONE;
+    } 
+    if(model instanceof CardTwoModel) {
+      return VIEWTYPE_CARD_TWO;
+    } else {
+      return VIEWTYPE_CARD_THREE
+    }
   }
 
   @Override public int getViewTypeCount() {
